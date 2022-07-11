@@ -31,8 +31,8 @@ practice. This means that you should try using anything learnt, as that reinforc
 
 These sections aim to introduce HTML, CSS, JavaScript, and more related tools and concepts necessary for FE developers,
 assuming no prior knowledge nor experience with either the languages, tools, or programming. In general, each section
-will have a directory in the style of one of the following two, depending whether they are based on general web design
-or are only related to JavaScript, respectively:
+will have a directory in the style of one of the following two within the `examples` directory, depending whether they
+are based on general web design or are only related to JavaScript, respectively:
 
 ```
 styles/         -> all CSS files go here
@@ -63,3 +63,10 @@ functionalities
 * web browser - Google Chrome, Mozilla Firefox, Edge, Safari, or any modern web browser
 * JS framework runner - nodeJS, which can be downloaded [here](https://nodejs.org/en/download/) for Windows and Mac,
 while Linux users should install it through their package manager
+
+
+## References
+
+The web is already a great source of finding tutorials and documentation on all the topics that will be covered. One
+such source is the [Mozilla Developer](https://developer.mozilla.org/en-US/) references site, which not only provides
+information on single concepts, but also have their own guides to learn frontend web development.
