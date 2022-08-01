@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Site - Influential Media</title>
+
+    <meta charset="utf-8">
+
+    <!-- set the page author -->
+    <meta name="author" content="TheOrangeLego">
+
+    <!-- set the page description -->
+    <meta name="description" content="This is a sample website, demonstrating different functionalities covered in the HTML and CSS sections.">
+
+    <!-- utilize shared styles -->
+    <link rel="stylesheet" href="styles/shared.css">
+
+    <!-- utilize page specific styles -->
+    <link rel="stylesheet" href="styles/books.css">
+  </head>
+
+  <body>
+    <div id="navbar-container">
+      <div class="navbar-side-container"></div>
+
+      <div class="navbar-center-container">
+        <!-- home -->
+        <a class="navbar-button-container" href="index.html">
+          <div class="navbar-button">
+            <img class="navbar-button-icon" src="media/shared/icons/home.48.png">
+
+            <div class="navbar-button-text">
+              <p>home</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- books -->
+        <a class="navbar-button-container" href="books.html">
+          <div class="navbar-button">
+            <img class="navbar-button-icon" src="media/shared/icons/books.48.png">
+
+            <div class="navbar-button-text">
+              <p>books</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- songs -->
+        <a class="navbar-button-container" href="songs.html">
+          <div class="navbar-button">
+            <img class="navbar-button-icon" src="media/shared/icons/songs.48.png">
+
+            <div class="navbar-button-text">
+              <p>songs</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- movies -->
+        <a class="navbar-button-container" href="movies.html">
+          <div class="navbar-button">
+            <img class="navbar-button-icon" src="media/shared/icons/movies.48.png">
+
+            <div class="navbar-button-text">
+              <p>movies</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- games -->
+        <a class="navbar-button-container" href="games.html">
+          <div class="navbar-button">
+            <img class="navbar-button-icon" src="media/shared/icons/games.48.png">
+
+            <div class="navbar-button-text">
+              <p>games</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-side-container"></div>
+    </div>
+
+    <div id="content-container">
+      <div class="content-side-container"></div>
+
+      <div class="content-center-container">
+        <div class="content-tabs">
+          <div class="content-tab">
+            <input type="radio" name="content-tab-choice" id="content-1" checked class="content-tab-input">
+
+            <label for="content-1" class="content-tab-label">
+              <p>Tab 1</p>
+            </label>
+
+            <div class="content-tab-content">
+              <p class="content-tab-text">
+                This is the first item.
+              </p>
+            </div>
+          </div>
+
+          <div class="content-tab">
+            <input type="radio" name="content-tab-choice" id="content-2" class="content-tab-input">
+
+            <label for="content-2" class="content-tab-label">
+              <p>Tab 2</p>
+            </label>
+
+            <div id="content-2" class="content-tab-content">
+              <p class="content-tab-text">
+                This is the second item.
+              </p>
+            </div>
+          </div>
+
+          <div class="content-tab">
+            <input type="radio" name="content-tab-choice" id="content-3" class="content-tab-input">
+
+            <label for="content-3" class="content-tab-label">
+              <p>Tab 3</p>
+            </label>
+
+            <div id="content-3" class="content-tab-content">
+              <p class="content-tab-text">
+                This is the third item.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-side-container"></div>
+    </div>
+
+    <div id="footer-container">
+      <div class="footer-side-container"></div>
+
+      <div class="footer-center-container">
+        <p>Copyright statement, I guess. :)</p>
+      </div>
+
+      <div class="footer-side-container"></div>
+    </div>
+  </body>
+</html>

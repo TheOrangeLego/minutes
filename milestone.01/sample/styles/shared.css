@@ -1,0 +1,162 @@
+@font-face {
+  font-family: "font-ubuntu";
+  src: url("../media/shared/fonts/ubuntu.mono.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+
+  background-color: #d6d6d6;
+  min-width: 750px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* navbar styles */
+#navbar-container {
+  height: 50px;
+
+  background-color: #515151;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-side-container {
+  display: flex;
+  flex-grow: 2;
+}
+
+.navbar-center-container {
+  display: flex;
+  flex-grow: 6;
+}
+
+.navbar-button-container {
+  width: 150px;
+  padding: 5px 10px;
+
+  display: flex;
+  text-decoration-line: none;
+  flex-grow: 1;
+  transition: all 0.35s ease;
+  border-radius: 5px;
+  background: linear-gradient(to right, rgb(0, 0, 0, 0.2) 50%, #515151 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.navbar-button-container:hover {
+  background-position: left bottom;
+}
+
+.navbar-button {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.navbar-button-icon {
+  width: 40px;
+}
+
+.navbar-button-text {
+  padding: 0px 0px 0px 5px;
+
+  display: flex;
+  align-items: center;
+
+  color: black;
+}
+
+.navbar-button-text > p {
+  height: 30px;
+  padding: 0px;
+  margin: 0px;
+
+  text-align: center;
+  vertical-align: center;
+  font-size: 26px;
+  font-family: 'font-ubuntu', 'Courier New', monospace;
+}
+
+/* container styles */
+#content-container {
+
+  display: flex;
+  flex-grow: 9;
+  flex-direction: row;
+}
+
+.content-side-container {
+  background-color: #f6f6f6;
+}
+
+.content-side-container,
+.footer-side-container {
+  display: flex;
+  flex-grow: 2;
+}
+
+.content-center-container,
+.footer-center-container {
+  padding: 50px 100px;
+  min-width: 600px;
+  max-width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 7;
+  justify-content: center;
+}
+
+.content-center-container {
+  background-color: #ffffff;
+}
+
+.content-center-container > p {
+  margin: 8px 0px;
+  text-align: start;
+  line-height: 200%;
+}
+
+.content-center-container > ul > li {
+  margin: 15px 0px;
+}
+
+.content-center-container > ul {
+  margin: 0px;
+}
+
+.footer-center-container > p {
+  text-align: center;
+  font-size: 12px;
+  /* color: #ffffff */
+}
+
+#content-1 {
+  margin: 0px;
+}
+
+#content-2 {
+  margin-top: -70px;
+}
+
+#content-3 {
+  margin-top: -140px;
+}
+
+/* footer styles */
+#footer-container {
+  height: 100px;
+
+  display: flex;  
+  flex-grow: 1;
+}
