@@ -4,7 +4,7 @@
 
 We shall continue from where we left off, and cover more commonly used elements in HTML.
 
-### Headings and Paragraphs
+## Headings and Paragraphs
 
 By now, the paragraph `p` element is familiar to us, but we should take a closer look to its function and behavior, and,
 in particular, how it handles whitespaces. In the already present paragraph, let us add many spaces and lines between
@@ -32,22 +32,22 @@ Let us revert back our paragraph and add an additional sentence.
 </p>
 ```
 
-If we wish to add a single space width worth in our text, we can use `$nbsp;`. Recall that HTML will ignore what it
+If we wish to add a single space width worth in our text, we can use `&nbsp;`. Recall that HTML will ignore what it
 considers 'additional' whitespace, so if we try to add another space between the words 'spacing' and 'examples' on our
-paragraph and refresh our page, we will only get one single space. Instead, we can add `$nbsp;` anywhere between the two
+paragraph and refresh our page, we will only get one single space. Instead, we can add `&nbsp;` anywhere between the two
 words, as such
 
 ```html
 <p>
-  Hello world! This is a sentence used for spacing$nbsp; examples.
+  Hello world! This is a sentence used for spacing&nbsp; examples.
 </p>
 ```
 
-Once we refresh the page, notice how there are two spaces in between the words. In fact, we can add as many `$nbsp;` as
+Once we refresh the page, notice how there are two spaces in between the words. In fact, we can add as many `&nbsp;` as
 we wish, and even replace all of our spaces between words with this format, although that would be more difficult for
 other developers to understand our code. In a similar implementation, if we wish to insert two spaces in our text,
-instead of writing two (2) `$nbsp;`s one after the other, as `$nbsp;$nbsp;`, we can use `$ensp;`. Taking this a bit
-further, we can use `$emsp;` to insert four (4) spaces.
+instead of writing two (2) `&nbsp;`s one after the other, as `&nbsp;&nbsp;`, we can use `&ensp;`. Taking this a bit
+further, we can use `&emsp;` to insert four (4) spaces.
 
 For those wondering what these words mean, and how they relate to spaces, here are some definitions --
 
@@ -70,7 +70,7 @@ separate the first and second sentences, we can insert `<br>` between them, and 
 
   <br>
 
-  This is a sentence used for spacing$nbsp; examples.
+  This is a sentence used for spacing&nbsp; examples.
 </p>
 ```
 
@@ -84,12 +84,12 @@ body to contain the following
 ```html
 <p>Hello world!</p>
 
-<p>This is a sentence used for spacing$nbsp; examples.</p>
+<p>This is a sentence used for spacing&nbsp; examples.</p>
 ```
 
 Notice how this accomplishes what we sought out for, while remaining syntatically correct; perfect!
 
-### Emphasis
+## Emphasis
 
 As social creatures, we more than often tend to place emphasis when communicating with others. This is slightly harder,
 as our traditional means of emphasis tend to be through change in tones, loudness, or gestures, all of which cannot be
@@ -120,7 +120,30 @@ are considered presentational elements. What this means is that while they are r
 visually, accessibility tools, such as screen readers, do not recognize them to be any different to regular text. Thus,
 whenever possible, it is best to stick with `strong` and `em` for our websites to be accessible friendly.
 
-### Lists and Tables
+## Headers
+
+We have seen constant use of the `p` element, and now that we have covered emphasizing text, one would wonder how should
+one create titles. While some are tempted in combining both `p` and emphasis elements, we should stick to grammatically
+correct implementations, and instead use the header elements. These headers are used to mark titles for the entire page
+or for sections or chapters, just like how some books do. There are six (6) different levels or categories for headers,
+each denoted as `h1`, `h2`, `h3`, `h4`, `h5`, and `h6`. The lower the number, the bigger the significance, i.e. `h1` is
+used as the title for the entire page, while `h3` would be used to title subsections. We should add a title to our page,
+while also introducing a new secion and title it accordingly. Let us place the following at the beginning of our body
+element
+
+```html
+<h1>My First Website</h1>
+```
+
+We cna then add the following to the end of the body section, to show how subsections generally function.
+
+```html
+<h3>New Subsection</h3>
+
+<p>We have now begun a new subsection on our page. Topics discussed here are often delved deeper within.</p>
+```
+
+## Lists and Tables
 
 There are times in which we wish to display list-like information. Think about a grocery list. We could denote it in a
 single sentence separated by commas
@@ -289,8 +312,157 @@ the following table for a more concrete example
 </table>
 ```
 
-### Hyperlinks
+## Hyperlinks
 
-### Media
+We shall now cover a key principal behind the world wide web, hyperlinks. A hyperlink is a method for a site to refer or
+link to another site or page. It would be chaotic if all content on the web was found within a single website, so by
+having some content contained within some website and have it refer to others, we can maintain this sense of
+connectivity. In order to accomplish this, we will use the `a` ( anchor ) element, which requires the attribute `href`
+( hyperlink reference ), which specifies what is our desired destination. Any text found within the element's tags will
+function as the link text, where clicking on any part of the text will send the user to the specified address. Let us
+try to add a link to a well known website, Google's.
 
-### Paradigms and Closing Words
+```html
+<a href="https://www.google.com">Click me to go to Google!</a>
+```
+
+After refreshing our page, notice that if we click on the link, our page will now be that of Google's. It may be useful,
+however, to instead open this page on a separate tab, especially if we don't want to lose our position in our site. To
+accomplish this, we can use the `target` attribute and assigning it the value `_blank`. Thus, our link should now be
+written as
+
+```html
+<a href="https://www.google.com" target="_blank">Click me to go to Google!</a>
+```
+
+Return back to our site, click the new link, and notice how it opens in a new tab while being able to go back to our
+site!
+
+Anchors do not only link to other websites, and instead can link to other pages within ours. To see this at work, create
+a new file within the same folder ( directory ) and name it `another.html`. Within it, let us quickly add some text to
+indicate that this is another page and not the landing page.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Second page</title>
+  </head>
+
+  <body>
+    <p>Welcome to the <em>second<em> page!</p>
+  </body>
+</html>
+```
+
+Take note of what is currently in our folder. We have to files, `index.html` and `another.html`. In order to link our
+**main** page to our second page, we create a new anchor element, where the `href` attribute is the relative position of
+our destination file. Since our destination file is on the same folder as our current page file, we would simply use the
+full file name.
+
+```html
+<a href="another.html">Visit my other page.</a>
+```
+
+If, however, our destination file was within some folder that was stored in the same folder as our current page file,
+say `another.html` was in the folder `deepest`, which was inside the folder, `deep`, then we would assign `href` with
+`deep/deepest/another.html`, as such
+
+```html
+<a href="deep/deepest/another.html">Visit my other page.</a>
+```
+
+On the other hand, if the file was outside of our current folder, we would use `..` to go out one folder. Suppose that
+`index.html` was inside a folder, and another folder contained this folder. Another folder contains that folder and the
+destination file `another.html`. For `index.html` to link to `another.html`, we would set `href` to be
+`../../another.html`, updating our anchor element to be
+
+```html
+<a href="../../another.html">Visit my other page.</a>
+```
+
+## Media
+
+How monotone would the Internet be if it was only composed of text? Let us make it more interesting and lively with some
+media content, like pictures, songs, and videos!
+
+We can start with one of the most common media types around, pictures. To add images to our page, we use the `img`
+( image ) element. This element requires the `src` attribute, which, similar to the `a` elememt, specifies the source
+location of the image relative to our current page file. So, suppose we had a file of an image of a robot, aptly named
+`robot.png`. To add this image to our page, we would write the following
+
+```html
+<img src="robot.png">
+```
+
+Some additional attributes we should consider when incorporating images to our page include the `alt` ( alternative ),
+`width`, and `height` attributes. Both `width` and `height` attributes are generally self explanatory, as they limit the
+width and height of the image. Careful, though, as this can cause images that are not of that original size to either be
+stretched if they are smaller than the specified dimensions or "crunchy" if they are significantly larger. The last
+attribute, `alt`, is useful as it is often used to describe the image, and is shown if for some reason the web browser
+does not render the image. So, let us modify our previous image link to have a width of 150 pixels, a height of 100
+pixels, and add some text describing our image.
+
+```html
+<img src="robot.png" alt="A robot giving a flower to the viewer." width="150" height="100">
+```
+
+Our next media type is audio. While very common in the early days of the commercialized Internet, audio has become less
+common, primarily seen only in audio streaming sites. We should be considerate of visiting users. Not everyone is open
+to having audio play when surfing the web, and others may not have the bandwith or accessibility to access it. This,
+however, does not mean that we cannot add it to our site and play with its features. To add audio, we should use the
+`audio` element. Unlike the `img` element, this element does use an opening and closing tag, where the enclosed contenxt
+is shown when audio cannot be played by the browser. This is effectively the same as the `alt` attribute we covered when
+using the `img` element. As the audio that we play must be sourced from either a file or some other form of source, we
+will use the `src` attribute. Furthermore, unlike images, audio can be controlled, which will pause or resume playback,
+or adjusting the overall volume. To allow access of these controls to the user, we simply state the `controls`
+attribute.
+
+```html
+<audio controls src="my_favorite_song.mp4">Your browser does not support audio playback.</audio>
+```
+
+Some other attributes to consider are `autoplay`, which dictate whether the audio should play as soon as it is loaded on
+the page, `loop`, specifying if the audio should continuously loop, and `muted`, specifying if the audio should start
+muted or not. All of these attributes take a boolean value, i.e. `true` or `false` string, and all by default set to
+`false`. Putting it all together, if we wish to have our audio clip to autoplay and loop, but also muted, then we would
+update our implementation as
+
+```html
+<audio controls autoplay="true" loop="true" muted="true" src="my_favorite_song.mp4">
+  Your browser does not support audio playback.
+</audio>
+```
+
+What if we wanted to have different formats to our audio files? One would argue that providing loss-less audio is of
+high importance, but should not be the only option for users to experience their site. This is possible, albeit with
+some changes to our usage of the `audio` element. Instead of using the `src` attribute to specify the source of our
+audio files, we will rely on the `source` element. This element requires two attributes, `src`, which has the same
+function as we have seen previously, and `type`, which specifies the type and format of our source. If we wish to load
+an MP4 file, we would set `type` to `audio/mp4`. If instead we wish to use an MPEG file, we would set it to
+`audio/mpeg`. This `source` element would now be added within the tags of the `audio` element, and we can actually add
+multiple `source` elements, as many as there are formats we wish to support. Suppose we had multiple formats of our song
+we wished to shared with, we would then update our implementation as
+
+```html
+<audio controls autoplay="true" loop="true" muted="true">
+  <source src="my_favorite_song.mp4" type="audio/mp4">
+  <source src="my_favorite_song.mp3" type="audio/mpeg">
+  <source src="my_favorite_song.ogg" type="audio/ogg">
+  Your browser does not support audio playback.
+</audio>
+```
+
+Lastly, we will discuss video or movie types. Luckily, incorporating video is generally similar to how we just
+implemented audio to our page. The `video` element encapsulates different `source` elements, each specifying the source
+and its source. Attributes such as `controls`, `width`, `height`, and others are also available in the `video` element,
+and the only notable changes to `source` is in its `type` attribute. If we wish to load a video of a dog, we can utilize
+the `video` element as such
+
+```html
+<video controls>
+  <source src="dog_playing.mp4" type="video/mp4">
+  <source src="dog_playing.webm" type="video/webm">
+  Your browser does not support video playback.
+</video>
+```
