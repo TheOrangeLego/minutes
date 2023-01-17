@@ -165,3 +165,35 @@ for (var index = 111; index <= 120; index++ ) {
   console.log("This is message " + ( index - 110 ) + ".");
 }
 ```
+
+Something else to note, too, is the fact that all variables defined inside the look construction, `index` in our sample
+above, and all variables defined inside our loop do not exist outside of it. Once we exit the loop, those variables
+cease to exist. If we wished to keep track of a variable's value, we should declare it outside first, the reference it
+within the loop.
+
+```js
+let index = 0;
+
+for ( index; index < 3; index++ ) {
+  console.log( "I'm inside the loop." );
+}
+
+console.log( "I'm outside the loop!" );
+console.log( "Index: ", index );
+```
+
+Another type of loop available for us to use is the while-loop. This loop only requires us to specify a "holding"
+condition. If this condition is true, then we will execute all statements in our loop, and, once the condition is false,
+we will exit our loop. Note, however, that we should have a way to exit out of our loop, which often happens within our
+loop body. Otherwise, we would end up with an infinite loop, and we do not want that. :)
+
+```js
+let counter = 1;
+
+while (counter < 3) {
+  console.log( "Counter is %s, still less than 3!", counter );
+  counter++;
+}
+
+console.log( "We are out of the loop, and the counter is %d.", counter );
+```
