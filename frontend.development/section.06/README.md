@@ -30,7 +30,7 @@ create complext statements. Some of these operators include
 `True`
 * `^` - read as X-OR, given two boolean values, `b1` and `b2`, `b1 ^ b2` is `True` if and only if both values do not
 have the same value
-`!` - read as NOT, given a boolean value, `b1`, `!b1` returns the opposite value
+* `!` - read as NOT, given a boolean value, `b1`, `!b1` returns the opposite value
 
 These operators expect boolean values as its operands, i.e. inputs. If instead we want to derive a boolean value from
 numbers or strings, we can use any form of relation quantifiers, such as `<`, `>`, or `==` ( here meaning equality ), If
