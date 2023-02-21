@@ -236,4 +236,121 @@ the alignment for all of the container's children by first setting its `display`
 }
 ```
 
-## Transforms
+## Transitions and Transforms
+
+Our final, but exciting, properties to cover for this section are both `transition` and `transform`. Let us cover
+`transition` first. Recall that CSS is able to specify certain properties on elements and identifiers the moment they
+are rendered on screen. Additionally, CSS allows us to specify new styles when we interact with them too! For example,
+suppose that we had some text at some specified font size.
+
+```html
+<p class="some-text">Hover over me!</p>
+```
+
+```css
+.some-text {
+  font-size: 12px;
+}
+```
+
+We can then change this font size to something larger when we hover over it, say like how we would use a magnifying
+glass. To accomplish this, we utilize a selector, in this case the `:hover` selector.
+
+```css
+.some-text:hover {
+  font-size: 20px;
+}
+```
+
+Notice, however, this change is abrupt. Can we make this smoother? Why, yes! This is where `transition` comes into play.
+`transition` utilizes four (4) different component, `delay`, `duration`, `property`, and `timing-function`. Going back
+to our previous text example, suppose we wanted to have the font get bigger within 1.5 seconds, we can then add to the
+original selector-less class definition the `transition` property, as such
+
+```css
+.some-text {
+  font-size: 12px;
+  transition: font-size 1.5s;
+}
+```
+
+After refreshing the page, notice how smoother the change in property is! If we wished to have some sort of delay, say a
+total of 1 second, we can edit the property to be as follows:
+
+```css
+.some-text {
+  font-size: 12px;
+  transition: font-size 1.5s 1s;
+}
+```
+
+The first number in the property will be taken as the `duration` of the transition, while the second the `delay`. You
+would then correctly guess `font-size` is the property we wished to transition. Notice if we changed the selector-ful
+property to have more declarations, such as
+
+```css
+.some-text:hover {
+  font-size: 20px;
+  color: red;
+}
+```
+
+our text color changes immediately. If we wished for color to also be part of this transition, we can specify them in
+the `transition` property as comma separated values.
+
+```css
+.some-text {
+  font-size: 12px;
+  transition: font-size, color 1.5s 1s;
+}
+```
+
+Otherwise, if we wish to apply transition to all properties, we can instead write `all`.
+
+The final component, `timing-function`, requires a more in-depth explanation and additional experimentation which will
+not be covered in this section nor guide. Instead, a thorough explanation can be found in
+[this Mozilla documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function), with
+additional [visualizations](https://easings.net), [tests](https://codepen.io/tortoise10h/pen/Owpqey), and
+[tools](https://matthewlein.com/tools/ceaser).
+
+Transitions are not only used with changing properties. Instead, we can incorporate them with the `transform` property.
+The `transform` property does exactly what it is called, it transforms elements visually. This allows us to `rotate`,
+`scale`, `skew`, and more! The list of available transformation functions can be found in
+[this document](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function). In the meantime, we can play
+around with the `rotate` transformation function.
+
+Suppose we had some text we wished to rotate ninety (90) degrees around. We can accomplish this with the following:
+
+```html
+<p class="spin-text">I am rotating!</p>
+```
+
+```css
+.spin-text {
+  transform: rotate(90deg);
+}
+```
+
+Once we refresh the page, our text is rotated! By combining what was discussed earlier about transitions, we can combine
+both properties to rotate when we hover over our text.
+
+```css
+.spin-text {
+  font-size: 14px;
+  transition: transform 1.2s;
+}
+
+.spin-text:hover {
+  transform: rotate(90deg);
+}
+```
+
+Nifty, isn't it? Likewise, we can combine multiple transformation functions per element or identifier, we simply space
+them out in the `transform` declaration. Note that transformations will be applied left to right, so be careful when
+combining effects, as they can get difficult to debug.
+
+```css
+.spin-text:hover {
+  transform: rotate(90deg) scale(1.5);
+}
+```
